@@ -12,6 +12,8 @@ const ProductController = require("../../controllers/admin/product_controller");
 const RegionController = require("../../controllers/admin/region_controller");
 const DealerController = require("../../controllers/admin/dealer_controller");
 const DeliveryOrderController = require("../../controllers/admin/delivery_order_controller");
+const GiftExchangeHistoryController = require("../../controllers/admin/gift_exchange_history_controller");
+const UserController = require("../../controllers/client/user_controller");
 
 //admin
 route.get('/admin', AdminController.index);
@@ -100,5 +102,12 @@ route.post('/delivery_order', DeliveryOrderController.create);
 route.get('/delivery_order/:id', DeliveryOrderController.edit);
 route.put('/delivery_order', DeliveryOrderController.update);
 route.delete('/delivery_order', DeliveryOrderController.delete);
+
+//gift exchange history
+route.get('/gift-exchange-history', GiftExchangeHistoryController.index);
+route.get('/gift-exchange-history/:id', GiftExchangeHistoryController.edit);
+
+//add point to user
+route.post('/user/add-point', UserController.addPoint);
 
 module.exports = route;

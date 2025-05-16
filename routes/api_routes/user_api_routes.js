@@ -12,6 +12,7 @@ const ProductController = require("../../controllers/admin/product_controller");
 const RegionController = require("../../controllers/admin/region_controller");
 const DealerController = require("../../controllers/admin/dealer_controller");
 const DeliveryOrderController = require("../../controllers/admin/delivery_order_controller");
+const GiftExchangeHistoryController = require("../../controllers/client/gift_exchange_history_controller");
 
 //gift item
 route.get('/gift-items', GiftItemController.index);
@@ -47,6 +48,11 @@ route.get('/dealer', DealerController.index);
 route.get('/delivery-order', DeliveryOrderController.index);
 
 route.post('/user', UserController.update);
+
+//gift exchange history
+route.get('/gift-exchange-history', GiftExchangeHistoryController.index);
+route.post('/gift-exchange-history', GiftExchangeHistoryController.create);
+route.get('/gift-exchange-history/:id', GiftExchangeHistoryController.edit);
 
 
 module.exports = route;

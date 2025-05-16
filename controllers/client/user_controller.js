@@ -37,6 +37,21 @@ class UserController {
             res.status(500).json(e.message);
         }
     }
+
+    static async addPoint(req, res)
+    {
+        const user = await User.findById(req.body.user_id);
+
+        const totalPoint = user.point + req.body.point;
+
+        user.point = totalPoint;
+        await user.save();
+
+        res.status(200).json({
+            status: 'success',
+            message: 'Add point success'
+        });
+    }
 }
 
 module.exports = UserController;
