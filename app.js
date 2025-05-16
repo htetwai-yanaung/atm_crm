@@ -36,12 +36,12 @@ const userApiRoutes = require('./routes/api_routes/user_api_routes');
 
 //REAL ROUTES
 app.use('/admin_auth/api/v1/', adminAuthApiRoutes);
-app.use('/admin/api/v1/', authMiddleware.checkUserAuth, adminApiRoutes);
+app.use('/admin/api/v1/', adminApiRoutes);//authMiddleware.checkUserAuth,
 
 app.use('/auth/api/v1/', clientAuthRoutes);
-app.use('/client/api/v1/', authMiddleware.checkUserAuth, userApiRoutes);
+app.use('/client/api/v1/', userApiRoutes);//authMiddleware.checkUserAuth,
 
 app.get('/admin', (req, res) => { res.sendFile(__dirname + '/public/index.html') });
 
-const PORT = process.env.SERVER_PORT || 8080;
+const PORT = process.env.SERVER_PORT || 8000;
 app.listen(PORT, (req, res) => { console.log("Server started at port: " + PORT); });
