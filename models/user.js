@@ -7,6 +7,7 @@ const UserSchema = new mongoose.Schema({
     contact_number: { type: String, default: null },
     store_name: {type: String, default: null },
     date_of_birth: {type: Date, default: null },
+    point: {type: Number, default: null },
     region: { type: mongoose.Schema.Types.ObjectId, ref: 'region' },
     address: {type: String, default: null },
     createdAt: {
@@ -16,7 +17,7 @@ const UserSchema = new mongoose.Schema({
         const offset = 6.5 * 60 * 60 * 1000; // Myanmar Time is UTC+6:30
         return new Date(now.getTime() + offset);
       },
-  }
+    }
   });
   
   const User = mongoose.model('user', UserSchema);
